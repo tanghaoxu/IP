@@ -3,11 +3,11 @@
 * 用法
 * [Panel]
 * #节点检测
-* 🄸🄿🄰🄳🄳🅁🄴🅂🅂 = script-name= 🄸🄿🄰🄳🄳🅁🄴🅂🅂, title="节点详情", content="请刷新", style=info, update-interval=1
+* ipcheck = script-name=ipcheck, title="节点详情", content="请刷新", style=info, update-interval=1
 * ...
 * [Script]
 * #节点检测
-* 🄸🄿🄰🄳🄳🅁🄴🅂🅂 = type=generic,timeout=3,script-path=https://raw.githubusercontent.com/LucaLin233/Luca_Conf/main/Surge/JS/ipcheck.js
+* ipcheck = type=generic,timeout=3,script-path=https://raw.githubusercontent.com/LucaLin233/Luca_Conf/main/Surge/JS/ipcheck.js
 */
 
 let url = "http://ip-api.com/json/?lang=zh-CN"
@@ -20,10 +20,10 @@ $httpClient.get(url, function(error, response, data){
     let isp = jsonData.isp
     let ip = jsonData.query
   body = {
-    title: "🄸🄿🄰🄳🄳🅁🄴🅂🅂",
-    content: `IP信息：${ip}\n运营商：${isp}\n所在地：${emoji}${country} - ${city}`,
-    icon: 'bonjour',
-    'icon-color': '#99FFFF',
+    title: "🅸🅿🅰🅳🅳🆁🅴🆂🆂",
+    content: `IP信息：${ip}\n所在地：${emoji}${country} - ${city}\n运营商：${isp}`,
+    icon: "bonjour",
+    "icon-color": "#99FFFF",
   }
   $done(body);
 });
