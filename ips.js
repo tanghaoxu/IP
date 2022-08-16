@@ -13,9 +13,8 @@
 let url = "http://ip-api.com/json/?lang=zh-CN"
 
 $httpClient.get(url, function(error, response, data){
-    let jsonData = JSON.parse(data)
-    let country = jsonData.country
     let emoji = getFlagEmoji(jsonData.countryCode)
+    let country = jsonData.country
     let city = jsonData.city
     let isp = jsonData.isp
   body = {
