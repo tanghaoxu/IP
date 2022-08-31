@@ -189,7 +189,6 @@ function getIP() {
  * @param {*} retryTimes // 重试次数
  * @param {*} retryInterval // 重试间隔 ms
  */
-$httpClient.get('http://ip-api.com/json/?lang=en',
 function getNetworkInfo(retryTimes = 5, retryInterval = 1000) {
   // 发送网络请求
   httpMethod.get('http://ip-api.com/json').then(response => {
