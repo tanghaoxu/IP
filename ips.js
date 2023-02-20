@@ -175,10 +175,10 @@ function getIP() {
   if (!v4 && !v6) {
     info = ['网路可能中断', '请手动刷新以重新获取 IP'];
   } else {
-    if (v6?.primaryAddress) info.push(`IPv6地址：已分配`);
-    if (v6?.primaryRouter && getSSID()) info.push(`IPv6地址：已分配`);
     if (v4?.primaryAddress) info.push(`设备IP：${v4?.primaryAddress}`);
+    if (v6?.primaryAddress) info.push(`IPv6地址：已分配`);
     if (v4?.primaryRouter && getSSID()) info.push(`路由器IP：${v4?.primaryRouter}`);
+    if (v6?.primaryRouter && getSSID()) info.push(`IPv6地址：已分配`);
   }
   info = info.join("\n");
   return info + "\n";
@@ -191,7 +191,7 @@ function getIP() {
  */
 function getNetworkInfo(retryTimes = 5, retryInterval = 1000) {
   // 发送网络请求
-  httpMethod.get('http://ip-api.com/json/?lang=zh-HK').then(response => {
+  httpMethod.get('http://ip-api.com/json').then(response => {
     if (Number(response.status) > 300) {
       throw new Error(`Request error with http status code: ${response.status}\n${response.data}`);
     }
@@ -202,9 +202,9 @@ function getNetworkInfo(retryTimes = 5, retryInterval = 1000) {
         getIP() +
         `节点IP：${info.query}\n` +
         `节点ISP：${info.isp}\n` +
-        `节点位置：${getFlagEmoji(info.countryCode)}⚡️${info.country}✨${info.city}`,
-      icon: getSSID() ? 'wifi' : 'simcard.2.fill',
-      'icon-color': getSSID() ? '#00FF00' : '#FF00FF',
+        `节点位置：${getFlagEmoji(info.countryCode)} | ${info.country} - ${info.city}`,
+      icon: getSSID() ? 'wifi' : 'simcard',
+      'icon-color': getSSID() ? '#5A9AF9' : '#8AB8DD',
     });
   }).catch(error => {
     // 网络切换
@@ -227,8 +227,8 @@ function getNetworkInfo(retryTimes = 5, retryInterval = 1000) {
       $done({
         title: '发生错误',
         content: '无法获取当前网络信息\n请检查网络状态后重试',
-        icon: 'wifi.slash',
-        'icon-color': '#00FFFF',
+        icon: 'wifi.exclamationmark',
+        'icon-color': '#CB1B45',
       });
     }
   });
@@ -252,7 +252,7 @@ function getNetworkInfo(retryTimes = 5, retryInterval = 1000) {
       title: "请求超时",
       content: "连接请求超时\n请检查网络状态后重试",
       icon: 'wifi.exclamationmark',
-      'icon-color': '#EAFF56',
+      'icon-color': '#CB1B45',
     });
   }, scriptTimeout > surgeMaxTimeout ? surgeMaxTimeout : scriptTimeout);
 
