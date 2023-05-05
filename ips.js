@@ -193,7 +193,7 @@ function getIP() {
  */
 function getNetworkInfo(retryTimes = 5, retryInterval = 1000) {
   // 发送网络请求
-  httpMethod.get('http://ip-api.com/json').then(response => {
+  httpMethod.get('http://ip-api.com/json/?lang=zh-CN').then(response => {
     if (Number(response.status) > 300) {
       throw new Error(`Request error with http status code: ${response.status}\n${response.data}`);
     }
@@ -204,7 +204,7 @@ function getNetworkInfo(retryTimes = 5, retryInterval = 1000) {
         getIP() +
         `节点IP：${info.query}\n` +
         `节点ISP：${info.isp}\n` +
-        `坐标：${getFlagEmoji(info.countryCode)} | ${info.country} - ${info.city}`,
+        `坐标：${getFlagEmoji(info.countryCode)}⚡️${info.country}✨${info.city}`,
       icon: getSSID() ? 'wifi' : 'simcard.2.fill',
       'icon-color': getSSID() ? '#00FF00' : '#FF00FF',
     });
