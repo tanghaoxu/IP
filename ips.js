@@ -182,8 +182,8 @@ function getIP() {
     if (v6?.primaryAddress) info.push(`IPv6地址：已分配`);
     if (v6?.primaryRouter && getSSID()) info.push(`IPv6地址：已分配`);
   }
-  info = info.join("\n");
-  return info + "\n";
+  info = info.join("");
+  return info + "";
 }
 
 /**
