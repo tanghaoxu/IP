@@ -202,9 +202,9 @@ function getNetworkInfo(retryTimes = 5, retryInterval = 1000) {
       title: getSSID() ?? getCellularInfo(),
       content:
         getIP() +
-        `节点IP：${info.query}\n` +
-        `节点ISP：${info.isp}\n` +
-        `坐标：${getFlagEmoji(info.countryCode)}${info.country}✨${info.city}`,
+        `节点IP➠${info.query}\n` +
+        `节点ISP➠${info.isp}\n` +
+        `坐标➠${getFlagEmoji(info.countryCode)}${info.country}✨${info.city}`,
       icon: getSSID() ? 'wifi' : 'simcard.2.fill',
       'icon-color': getSSID() ? '#00FF00' : '#E6B422',
     });
