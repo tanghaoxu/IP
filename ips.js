@@ -2,8 +2,8 @@
  * Surge 网络详情
  * 由@Nebulosa-Cat编写
  * 由@Rabbit-Spec翻译
- * 更新日期：2023.5.5
- * 版本：3.5
+ * 更新日期：2023.5.8
+ * 版本：3.8
  */
 
 /**
@@ -204,7 +204,7 @@ function getNetworkInfo(retryTimes = 5, retryInterval = 1000) {
         getIP() +
         `节点IP：${info.query}\n` +
         `节点ISP：${info.isp}\n` +
-        `坐标：${getFlagEmoji(info.countryCode)}⚡️${info.country}✨${info.city}📮${info.zip}`,
+        `坐标：${getFlagEmoji(info.countryCode)}⚡️${info.country}✨${info.city}`,
       icon: getSSID() ? 'wifi' : 'simcard.2.fill',
       'icon-color': getSSID() ? '#00FF00' : '#E6B422',
     });
