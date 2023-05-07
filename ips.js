@@ -179,8 +179,8 @@ function getIP() {
   if (!v4 && !v6) {
     info = ['网路可能中断', '请手动刷新以重新获取 IP'];
   } else {
-    if (v6?.primaryAddress) info.push(`IPv6地址：已分配`);
-    if (v6?.primaryRouter && getSSID()) info.push(`IPv6地址：已分配`);
+    if (v6?.primaryAddress) info.push(``);
+    if (v6?.primaryRouter && getSSID()) info.push(``);
   }
   info = info.join("");
   return info + "";
