@@ -9,7 +9,7 @@
 /**
  * 网络请求封装为 Promise
  * Usage: httpMethod.get(option).then(response => { logger.log(data) }).catch(error => { logger.log(error) })
- * Usage: httpMethod.post(option).then(response => { logger.log(data) }).catch(error => { logger.log(error) })
+ * Usage: httpMethod.post(option).then(response => { logger.log(data) }).catch(error => { logger.log(error) }) 
  * response: { status, headers, data }
  */
 class httpMethod {
@@ -204,7 +204,7 @@ function getNetworkInfo(retryTimes = 5, retryInterval = 1000) {
         getIP() +
         `节点IP➠${info.query}\n` +
         `节点ISP➠${info.isp}\n` +
-        `坐标➠${getFlagEmoji(info.countryCode)}${info.country}🏰${info.city}📮${info.zip}`,
+        `坐标➠${getFlagEmoji(info.countryCode)}${info.country}🏰${info.city}💌${info.zip}`,  
       icon: getSSID() ? 'wifi' : 'simcard.2.fill',
       'icon-color': getSSID() ? '#00FFFF' : '#E6B422',
     });
